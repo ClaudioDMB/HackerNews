@@ -8,7 +8,7 @@ The goal is to build cleaner, easier more accessible version of [Hacker News](ht
 The application allows users to view posts, filtering them by type.
 
 ## Solution approach
-Looking at the Hacker News resources, I notice that an api to retrieve paginated posts entities wasn't availaible,
+Looking at the Hacker News resources, I noticed that an api to retrieve paginated posts entities wasn't availaible,
 but was available an api to retrieve ids array of posts.
 
 I preferred to use infinites scroll pagination,  to make the UI more user friendly.
