@@ -8,11 +8,8 @@ The goal is to build cleaner, easier more accessible version of [Hacker News](ht
 The application allows users to view posts, filtering them by type.
 
 ## Solution approach
-Looking at the Hacker News resources, I noticed that an api to retrieve paginated posts entities wasn't availaible,
-but was available an api to retrieve ids array of posts.
-
 I preferred to use infinites scroll pagination,  to make the UI more user friendly.
-Thanks to this pagination approach, users don't have to paginate themselves,but UI will handle it automatically.
+Thanks to this pagination approach, users don't have to paginate themselves, but UI will handle it automatically.
 
 
 Assuming that the pagination was in charge of front end, I decide to commission to the service all the pagination logic, in order
