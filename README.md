@@ -42,7 +42,7 @@ Because of the infinite scroll feature, i have to made use of scan rxjs operator
 - Infinite scroll pagination.
 - Sorting by top, new and best stories.
 - Responsive and more attractive design.
-- Accesibility.
+- Accessibility.
 
 ## Technologies Used
 # Languages
