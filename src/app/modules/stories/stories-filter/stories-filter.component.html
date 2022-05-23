@@ -1,0 +1,48 @@
+<ng-container *ngIf="activeButton$ | async as activeButton">
+  <div class="col-12 d-flex flex-wrap justify-content-center my-3">
+    <!--START NEW STORIES BUTTON-->
+    <label
+      class="btn mx-3"
+      role="button"
+      [ngClass]="
+        activeButton === storiesFilterType.newStories
+          ? 'Button-active'
+          : 'Button-inactive'
+      "
+      (click)="changeStoriesType(storiesFilterType.newStories)"
+    >
+      New stories
+    </label>
+    <!--END NEW STORIES BUTTON-->
+
+    <!--START TOP STORIES BUTTON-->
+    <label
+      class="btn mx-3"
+      role="button"
+      [ngClass]="
+        activeButton === storiesFilterType.topStories
+          ? 'Button-active'
+          : 'Button-inactive'
+      "
+      (click)="changeStoriesType(storiesFilterType.topStories)"
+    >
+      Top stories
+    </label>
+    <!--END TOP STORIES BUTTON-->
+
+    <!--START BEST STORIES BUTTON-->
+    <label
+      class="btn mx-3"
+      role="button"
+      [ngClass]="
+        activeButton === storiesFilterType.bestStories
+          ? 'Button-active'
+          : 'Button-inactive'
+      "
+      (click)="changeStoriesType(storiesFilterType.bestStories)"
+    >
+      Best stories
+    </label>
+    <!--START BEST STORIES BUTTON-->
+  </div>
+</ng-container>

@@ -1,0 +1,52 @@
+<stories-filter
+  (storiesTypeChangedEvent)="storiesTypeChanged()"
+></stories-filter>
+
+<!--START STORIES LIST CARD-->
+<div class="card">
+  <!--START INFINITE SCROLLABLE STORIES CONTAINER-->
+  <div
+    #container
+    class="card-body stories-container"
+    infiniteScroll
+    [infiniteScrollDisabled]="loading"
+    [infiniteScrollDistance]="0.8"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="false"
+    [fromRoot]="true"
+    (scrolled)="onScroll()"
+    id="stories-container"
+    #storiesContainer
+  >
+    <div *ngIf="stories$ | async as stories">
+      <div *ngIf="stories.length > 0; else noResultsTemplate">
+        <!--START STORIES ITERATION-->
+        <div *ngFor="let story of stories; let i = index">
+          <stories-item [story]="story"></stories-item>
+          <hr class="hr-stories" *ngIf="i < stories.length" />
+        </div>
+        <!--END STORIES ITERATION-->
+      </div>
+
+      <!--START NO RESULTS TEMPLATE-->
+      <ng-template #noResultsTemplate>
+        <div *ngIf="!errorMessage" class="my-2 text-center">
+          <span class="fw-bold"> No posts found! </span>
+        </div>
+      </ng-template>
+      <!--END NO RESULTS TEMPLATE-->
+    </div>
+
+    <!--START LOADING SPINNER-->
+    <div *ngIf="loading && !errorMessage" class="d-flex justify-content-center">
+      <div class="spinner-border" role="status"></div>
+    </div>
+    <!--END LOADING SPINNER-->
+
+    <!--START ERROR MESSAGE-->
+    <span *ngIf="errorMessage" class="text-danger"> {{ errorMessage }}</span>
+    <!--END ERROR MESSAGE-->
+  </div>
+  <!--END INFINITE SCROLLABLE STORIES CONTAINER-->
+</div>
+<!--END STORIES LIST CARD-->

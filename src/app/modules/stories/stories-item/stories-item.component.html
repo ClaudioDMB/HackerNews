@@ -1,0 +1,37 @@
+<ng-container *ngIf="story">
+  <div class="list-group">
+    <div
+      class="list-group-item list-group-item-action flex-column align-items-start"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <!--START TITLE-->
+        <h5 role="button" class="mb-1" (click)="goToUrl(story.url)">
+          {{ story.title }}
+        </h5>
+        <!--END TITLE-->
+
+        <!--START TIME-->
+        <small>{{ story.time * 1000 | date: "dd/MM/yyyy h:mm a" }}</small>
+        <!--END TIME-->
+      </div>
+
+      <p class="mb-1">
+        <!--START SCORE-->
+        <span *ngIf="story.score"> Score {{ story.score }} </span>
+        <!--END SCORE-->
+        <!--START CREATED BY-->
+        <span>
+          - By
+          <a href="#" class="text-muted">{{ story.by }}</a>
+        </span>
+        <!--END CREATED BY-->
+
+        <!--START COMMENTS-->
+        <span *ngIf="story.kids != null">
+          - <a href="#" class="text-muted">{{ story.kids.length }} Comments</a>
+        </span>
+        <!--END COMMENTS-->
+      </p>
+    </div>
+  </div>
+</ng-container>
