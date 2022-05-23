@@ -2,20 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
-The goal is to build cleaner, easier more accessible version of [Hacker News](https://news.ycombinator.com/) using the resources from their [API](https://github.com/HackerNews/API).
+The goal is to build a cleaner, easier more accessible version of [Hacker News](https://news.ycombinator.com/) using the resources from their [API](https://github.com/HackerNews/API).
 
 ## Description
-The application allows users to view posts, filtering them by type.
+The application allows users to view posts and filtering them by type.
 
 ## Solution approach
-I preferred to use infinites scroll pagination,  to make the UI more user friendly.
+I preferred using infinites scroll pagination,  to make the UI more user friendly.
 Thanks to this pagination approach, users don't have to paginate themselves, but UI will handle it automatically.
 
 
-Assuming that the pagination was in charge of front end, I decide to commission to the service all the pagination logic, in order
+Assuming that front end was responsible for the pagination, I decided to commission the pagination logic to the service, in order
 to make the components code readable and dry.
-To do this I create 2 Behaviour subject (pages and postsType), that combined into a combineLatest, listen for changes and then retrieves datas.
-Because of the infinite scroll feature, i have to made use of scan rxjs operator, that allows me to store previous results and then add the new ones.
+To do this I created 2 Behaviour subject (pages and postsType), that combined into a combineLatest, looked for changes and then retrieved data.
+Because of the infinite scroll feature, I had to use scan rxjs operator that allowed me to store previous results and then add the new ones.
 
 
 
@@ -70,8 +70,8 @@ run npm start
 
 ## Future improvements
 
-As I wanted to keep the challenge in the 8 hours mark I had to left some functionalities out.
+As I wanted to keep the challenge within 8 hours mark I had to leave some functionalities out.
 
-- In the future improvements I'd like to do a better error handling if there's any errors fetching the  from the API.
+- In the future improvements I'd like to do a better error handling if there's any errors fetching the data from APIs.
 - Implements unit tests.
 - Increase filters options (date, text filters). Looking for Hacker news search APIs, i found https://hn.algolia.com/api that could help for future development.
